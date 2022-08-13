@@ -28,7 +28,7 @@ export default {
       if (confirm("本当にこのカードを削除しますか？")) {
         this.$store.dispatch("removeCardFromList", {
           cardIndex: this.cardIndex,
-          lisrIndex: this.listIndex,
+          listIndex: this.listIndex,
         });
       }
     },
