@@ -4,11 +4,17 @@
       <p class="list-title">{{ title }}</p>
       <div class="deletelist" @click="removeList">X</div>
     </div>
+    <card-add :listIndex="listIndex" />
   </div>
 </template>
 
 <script>
+import CardAdd from "./CardAdd.vue";
+
 export default {
+  components: {
+    CardAdd,
+  },
   props: {
     title: {
       type: String,
