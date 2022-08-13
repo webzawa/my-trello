@@ -3,7 +3,7 @@
     <header>my Trello</header>
     <main>
       <p class="info-line">All: {{ totalCardCount }} tasks</p>
-      <div class="list-index">
+      <draggable class="list-index" :list="lists">
         <list
           v-for="(item, index) in lists"
           :key="item.id"
@@ -13,7 +13,7 @@
           @change="movingCard"
         />
         <list-add />
-      </div>
+      </draggable>
     </main>
   </div>
 </template>
@@ -22,11 +22,13 @@
 import ListAdd from "./ListAdd.vue";
 import List from "./List.vue";
 import { mapState } from "vuex";
+import draggable from "vuedraggable";
 
 export default {
   components: {
     ListAdd,
     List,
+    draggable,
   },
   computed: {
     ...mapState(["lists"]),
