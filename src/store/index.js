@@ -24,7 +24,13 @@ const store = new Vuex.Store({
 					},
 			  ],
 	},
-	getters: {},
+	getters: {
+		totalCardCount(state) {
+			let count = 0;
+			state.lists.map((context) => (count += context.cards.length));
+			return count;
+		},
+	},
 	mutations: {
 		addlist(state, payload) {
 			state.lists.push({ title: payload.title, cards: [] });
