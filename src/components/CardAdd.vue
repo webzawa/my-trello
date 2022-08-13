@@ -32,7 +32,6 @@ export default {
     classList() {
       const classList = ["addcard"];
       if (this.isEditing) {
-        console.log(this);
         classList.push("active");
       }
       if (this.bodyExists) {
@@ -47,7 +46,7 @@ export default {
   methods: {
     addCardToList: function () {
       this.$store.dispatch("addCardToList", {
-        title: this.body,
+        body: this.body,
         listIndex: this.listIndex,
       });
       this.body = "";
